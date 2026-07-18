@@ -1,21 +1,18 @@
-# Profile
 
-## Name
 Krishnapriya M S
 
 ## Roll Number
-YOUR_ROLL_NUMBER
+25MX115
 
 ## College
-YOUR_COLLEGE_NAME
+PSG COLLEGE OF TECHNOLOGY
 
 ## Branch
-Computer Science and Engineering
-
+MASTERS OF COMUTER APPLICATIONS
 ## Interests
 - Artificial Intelligence
 - Software Development
-- Accessibility
+
 
 ## Goal
 To become a skilled software engineer and build impactful AI solutions.
