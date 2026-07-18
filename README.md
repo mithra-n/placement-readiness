@@ -39,6 +39,21 @@ A fully transparent, GitHub-driven leaderboard and submission portal. No databas
 
 ---
 
+## 🤖 How the Automation Works
+
+This portal is designed to run completely autonomously using GitHub Actions. Here is the full lifecycle of a student's submission:
+
+1. **Pull Request Validation** (`validate-pr.yml`):
+   When a student opens a PR, a GitHub Action runs `validate-submission.mjs`. It strictly verifies that the student *only* edited their designated `activities/YYYY-MM-DD/<roll-number>` folder and that they included all required files (e.g., `README.md`, `reflection.md`, `prompts.md`).
+2. **Auto-Merge**:
+   If the validation checks pass successfully, the GitHub Action bot automatically approves the pull request and squash-merges it into the `main` branch. No manual review is required from maintainers.
+3. **Recalculate & Leaderboard Update** (`on-merge.yml`):
+   Immediately after the PR is auto-merged, another action is triggered. It runs the automated scoring system, updates the underlying JSON databases, and regenerates the leaderboard in this README.
+4. **Vercel Auto-Deploy**:
+   Finally, the action commits the updated scores back to the repository and triggers a Vercel deploy hook, ensuring the [live dashboard](https://class.psgmx.tech/) reflects the newest submissions instantly.
+
+---
+
 ## Automated Scoring System
 
 The portal uses an automated bot (`scripts/recalculate-scores.mjs`) to assign scores for each day's submission. The maximum score for standard days is **30 points**, but **Day 1 and Day 2** have a max of **25 points** (Prompting is disabled).
