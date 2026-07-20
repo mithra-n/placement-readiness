@@ -5,7 +5,7 @@
 Implement K-Means Clustering from scratch without using Scikit-learn.
 
 ---
-
+.
 ## Technologies
 
 - Python
